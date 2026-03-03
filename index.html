@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Brother Services | Dhanbad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root { --orange: #FF6600; --blue: #004AAD; }
+        .bg-custom-blue { background-color: var(--blue); }
+        .text-custom-orange { color: var(--orange); }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold italic">
+                <span class="text-blue-800">Hello</span><span class="text-orange-600">Brother</span>
+            </div>
+            <div class="hidden md:flex space-x-6 font-medium">
+                <a href="#" class="hover:text-orange-600">Home</a>
+                <a href="#services" class="hover:text-orange-600">Services</a>
+                <a href="#order-form" class="hover:text-orange-600">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-custom-blue text-white py-16 px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Dhanbad's #1 Home Experts</h1>
+        <p class="text-lg mb-8 opacity-90">Sahi Kaam, Sahi Daam - Just like a Brother!</p>
+        <a href="#order-form" class="bg-orange-600 hover:bg-orange-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition transform hover:scale-105">
+            BOOK A SERVICE NOW
+        </a>
+    </section>
+
+    <section id="services" class="container mx-auto py-16 px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Hamari Services</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:border-orange-500 border-2 border-transparent transition">
+                <i class="fas fa-bolt text-5xl text-blue-800 mb-4"></i>
+                <h3 class="font-bold text-xl">Electrician</h3>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:border-orange-500 border-2 border-transparent transition">
+                <i class="fas fa-faucet text-5xl text-blue-800 mb-4"></i>
+                <h3 class="font-bold text-xl">Plumbing</h3>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:border-orange-500 border-2 border-transparent transition">
+                <i class="fas fa-snowflake text-5xl text-blue-800 mb-4"></i>
+                <h3 class="font-bold text-xl">AC Repair</h3>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:border-orange-500 border-2 border-transparent transition">
+                <i class="fas fa-couch text-5xl text-blue-800 mb-4"></i>
+                <h3 class="font-bold text-xl">Cleaning</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="order-form" class="bg-gray-100 py-16 px-6">
+        <div class="max-w-lg mx-auto bg-white p-10 rounded-3xl shadow-2xl">
+            <h2 class="text-3xl font-bold text-center mb-2 text-blue-900">Book Expert</h2>
+            <p class="text-center text-gray-500 mb-8 font-medium">Ye form bhariye, hum aapko call karenge.</p>
+            
+            <div class="space-y-5">
+                <input type="text" id="custName" placeholder="Aapka Naam" class="w-full p-4 border rounded-xl outline-none focus:ring-2 focus:ring-orange-500 bg-gray-50">
+                <input type="tel" id="custPhone" placeholder="Mobile Number" class="w-full p-4 border rounded-xl outline-none focus:ring-2 focus:ring-orange-500 bg-gray-50">
+                <input type="text" id="custAddress" placeholder="Dhanbad Address (Landmark ke saath)" class="w-full p-4 border rounded-xl outline-none focus:ring-2 focus:ring-orange-500 bg-gray-50">
+                
+                <select id="custService" class="w-full p-4 border rounded-xl outline-none focus:ring-2 focus:ring-orange-500 bg-gray-50">
+                    <option value="Electrician">Electrician Required</option>
+                    <option value="Plumber">Plumber Required</option>
+                    <option value="AC Repair">AC Service / Repair</option>
+                    <option value="Carpenter">Carpenter Required</option>
+                    <option value="Cleaning">Full Home Cleaning</option>
+                </select>
+
+                <button onclick="sendToWhatsApp()" class="w-full bg-blue-800 text-white py-4 rounded-xl font-bold text-xl hover:bg-blue-900 shadow-lg transform active:scale-95 transition-all">
+                    CONFIRM BOOKING <i class="fab fa-whatsapp ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 text-center">
+        <div class="text-2xl font-bold mb-4">Hello Brother Services</div>
+        <p class="text-gray-400">Bhai jaisa bharosa, Expert jaisa kaam!.</p>
+        <p class="mt-6 text-sm opacity-50">&copy; 2026 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function sendToWhatsApp() {
+            // 1. APNA WHATSAPP NUMBER YAHAN DALO (Start with 91)
+            const myNumber = "918102011736"; 
+
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+            const service = document.getElementById('custService').value;
+
+            if(name == "" || phone == "" || address == "") {
+                alert("Please fill all details!");
+                return;
+            }
+
+            // Message format
+            const message = `*NEW ORDER - HELLO BROTHER*%0A%0A` +
+                            `*Name:* ${name}%0A` +
+                            `*Phone:* ${phone}%0A` +
+                            `*Address:* ${address}%0A` +
+                            `*Service Needed:* ${service}%0A%0A` +
+                            `_Please contact the customer immediately!_`;
+
+            const url = `https://wa.me/${myNumber}?text=${message}`;
+            window.open(url, '_blank').focus();
+        }
+    </script>
+
+</body>
+</html>
